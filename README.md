@@ -1,4 +1,4 @@
-# BoxCritters Coder Pack
+# Project SArpnt
 
 # Prerequisites:
 Install Node.js
