@@ -1,4 +1,4 @@
-# Prohect SArpnt
+# Project SArpnt
 
 # Prerequisites:
 Install Node.js
