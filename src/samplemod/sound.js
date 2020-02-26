@@ -4,13 +4,16 @@ module.exports = class {
 	}
 
 	start(note) {
-		//genEvent.send('noteStart', n)
+		if (!this.ctx) this.ctx = new AudioContext()
+		var osc = this.ctx.createOscillator()
+		osc.type = 'sine'
+		osc.frequency.setValueAtTime(440, this.ctx.currentTime);
+		osc.start()
 
 		//$('.key')[n].style['background-color'] = 'red'
 
-		//start note sound
 		console.log(note)
-		this.playingnotes.unshift({ sound: 1, note: note })
+		this.playingnotes.unshift({ sound: osc, note: note })
 	}
 
 	stop(note) {

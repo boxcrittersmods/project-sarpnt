@@ -87,7 +87,6 @@ module.exports = class {
 	}
 }
 },{"./sound.js":4}],3:[function(require,module,exports){
-var context
 var songpitch = 440
 
 var genEvent = new (require('./events.js'))()
@@ -109,7 +108,6 @@ testDiv.innerHTML =
 
 function start() {
 	document.getElementsByClassName('client')[0].appendChild(testDiv)
-	context = new AudioContext()
 
 	/*socket.on("M", () => {
 		console.log(Object.keys(world.room.players).length + " Players are online")
@@ -130,28 +128,27 @@ module.exports = class {
 	}
 
 	start(note) {
-		//genEvent.send('noteStart', n)
+		if (!this.ctx) this.ctx = new AudioContext()
+		var osc = this.ctx.createOscillator()
+		osc.type = 'sine'
+		osc.frequency.setValueAtTime(440, this.ctx.currentTime);
+		osc.start()
 
 		//$('.key')[n].style['background-color'] = 'red'
 
-		//start note sound
 		console.log(note)
-		this.playingnotes.unshift({ sound: 1, note: note })
+		this.playingnotes.unshift({ sound: osc, note: note })
 	}
 
 	stop(note) {
-		var ntd
 		for (let i in this.playingnotes) {
 			var s = this.playingnotes[i]
 			if (s.note == note) {
-				ntd = s.sound
+				s.sound.stop()
 				this.playingnotes.splice(i, 1)
-
 				break
 			}
 		}
-		if (ntd)
-			ntd.stop()
 		//genEvent.send('noteStop', n)
 		//$('.key')[n].style = {}
 	}

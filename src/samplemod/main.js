@@ -1,4 +1,3 @@
-var context
 var songpitch = 440
 
 var genEvent = new (require('./events.js'))()
@@ -20,7 +19,6 @@ testDiv.innerHTML =
 
 function start() {
 	document.getElementsByClassName('client')[0].appendChild(testDiv)
-	context = new AudioContext()
 
 	/*socket.on("M", () => {
 		console.log(Object.keys(world.room.players).length + " Players are online")
