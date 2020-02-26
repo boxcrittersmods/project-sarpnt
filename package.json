@@ -12,14 +12,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@babel/preset-react": "^7.8.3",
+    "babelify": "^10.0.0",
     "browserify": "^16.5.0",
     "combined-stream": "^1.0.8",
     "express": "^4.17.1",
     "extract-zip": "^1.6.7",
     "fs-extra": "^8.1.0",
+    "react": "^16.12.0",
     "tn-webserver": "^1.0.3",
-"babelify":"^10.0.0",
-"@babel/core":"^7.0.0"
+    "webmidi": "^2.5.1"
   },
   "devDependencies": {
     "gulp": "^4.0.2"

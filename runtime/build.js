@@ -37,7 +37,7 @@ BCP.MODS.forEach((mod,i)=>{
 	if (info.onefile) {
 		s = fs.createReadStream(mainFile);
 	} else {
-		let b = browserify().add(mainFile).transform("babelify", {presets: ["@babel/preset-env", "@babel/preset-react"]})
+		let b = browserify().add(mainFile)
 		s = b.bundle();
 	}
 	s.pipe(buildFileStream,{end:false});
